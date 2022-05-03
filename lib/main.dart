@@ -24,7 +24,10 @@ class MyApp extends StatelessWidget {
         GetPage(name: HomeScreen.id, page:()=> HomeScreen()),
       ],
       debugShowCheckedModeBanner: false,
-
+      initialRoute: LoginScreen.id,
+      theme: ThemeData(),
+      transitionDuration: Duration(seconds: 1),
+      defaultTransition: Transition.circularReveal,
     );
   }
 }
