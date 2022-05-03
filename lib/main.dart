@@ -19,8 +19,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       getPages: [
-        //GetPage(name: name, page: page),
-
+        GetPage(name: SignUpScreen.id, page:()=> SignUpScreen()),
+        GetPage(name: LoginScreen.id, page:()=> LoginScreen()),
+        GetPage(name: HomeScreen.id, page:()=> HomeScreen()),
       ],
       debugShowCheckedModeBanner: false,
 
