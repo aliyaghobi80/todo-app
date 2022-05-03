@@ -5,7 +5,8 @@ import 'package:todo/constant.dart';
 class CustomButton extends StatelessWidget {
   Size size;
   VoidCallback onTapped;
-CustomButton({Key? key,required this.size,required this.onTapped}) : super(key: key);
+  String text;
+CustomButton({Key? key,required this.size,required this.onTapped,required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +30,13 @@ CustomButton({Key? key,required this.size,required this.onTapped}) : super(key: 
             borderRadius: BorderRadius.circular(50),
           ),
           child: Row(
-            children: const [
+            children:  [
               SizedBox(
                 width: 10,
               ),
               Spacer(),
               Text(
-                'Sign Up',
+                text,
                 style: kButtonTextStyle,
               ),
               Spacer(),
