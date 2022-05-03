@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  Get.lazyPut<AuthServices>(()=>AuthServices());
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
