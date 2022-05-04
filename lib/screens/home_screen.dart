@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
+import 'package:table_calendar/table_calendar.dart';
+import 'package:todo/screens/person_info.dart';
 import 'package:todo/services/auth_services.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,7 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final authServices=Get.put<AuthServices>(AuthServices());
+
+  final authServices=Get.find<AuthServices>();
   String showSelectedDatetime='';
   @override
   Widget build(BuildContext context) {
@@ -23,34 +25,18 @@ class _HomeScreenState extends State<HomeScreen> {
     centerTitle: true,
 actions: [
   IconButton(onPressed: (){
-    authServices.firebaseAuth.signOut();
-  }, icon: Icon(Icons.logout))
+    Get.toNamed(PersonInfo.id);
+  }, icon: Icon(Icons.person))
 ],
       ),
       body: SafeArea(
         child: Column(
           children: [
-            TextButton(
-              onPressed: () {
-                DatePicker.showDateTimePicker(context,
-                    showTitleActions: true,
-                    minTime: DateTime(2020, 3, 5),
-                    maxTime: DateTime(2030, 6, 7), onChanged: (date) {
-                  setState(() {
-                    showSelectedDatetime=date.toString();
-                  });
-                  print('change $date');
-                }, onConfirm: (date) {
-                  print('confirm $date');
-                }, currentTime: DateTime.now(), locale: LocaleType.en);
-              },
-              child: Text(
-                'Select time',
-                style: TextStyle(color: Colors.blue),
-              ),
-            ),
-            Text(showSelectedDatetime),
-            Text(authServices.firebaseAuth.currentUser!.email.toString()),
+        TableCalendar(
+        firstDay: DateTime.utc(2010, 10, 16),
+        lastDay: DateTime.utc(2030, 3, 14),
+        focusedDay: DateTime.now(),
+      ),
           ],
         ),
       ),
