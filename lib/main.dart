@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo/screens/Login_screen.dart';
 import 'package:todo/screens/home_screen.dart';
+import 'package:todo/screens/person_info.dart';
 import 'package:todo/screens/sign_up_screen.dart';
 import 'package:todo/services/auth_services.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: SignUpScreen.id, page:()=> SignUpScreen()),
         GetPage(name: LoginScreen.id, page:()=> LoginScreen()),
         GetPage(name: HomeScreen.id, page:()=> HomeScreen()),
+        GetPage(name: PersonInfo.id, page:()=> PersonInfo()),
       ],
       debugShowCheckedModeBanner: false,
       initialRoute: LoginScreen.id,
