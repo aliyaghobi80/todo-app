@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:todo/constant.dart';
 import 'package:todo/screens/Login_screen.dart';
+import 'package:todo/screens/home_screen.dart';
 import 'package:todo/services/auth_services.dart';
 import 'package:todo/widgets/custom_button.dart';
 import 'package:todo/widgets/custom_text.dart';
@@ -188,6 +189,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       },
                                       child: const Text(
                                         'Do you have an account?',
+                                        style: kAccountTextStyle,
+                                      )),
+                                  TextButton(
+                                      onPressed: () {
+                                        Get.toNamed(HomeScreen.id);
+                                      },
+                                      child: Text(
+                                        'Continue as guest',
                                         style: kAccountTextStyle,
                                       )),
                                 ],
