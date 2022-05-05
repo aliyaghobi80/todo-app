@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+//  final FirebaseAuth _auth = FirebaseAuth.instance;
   final authServices=Get.find<AuthServices>();
   var currentStatus='Not Login';
 
@@ -43,15 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
 @override
   void initState() {
   super.initState();
-  _auth.authStateChanges()
-      .listen((User? user) {
-    if (user == null) {
-      Get.toNamed(SignUpScreen.id);
-    } else {
-      print('User is signed in!');
-      Get.offNamed(HomeScreen.id);
-    }
-  });
   }
   @override
   Widget build(BuildContext context) {
@@ -156,7 +147,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                       child: Text(
                                         'Dont have an account?',
                                         style: kAccountTextStyle,
-                                      ))
+                                      )),
+                                  TextButton(
+                                      onPressed: () {
+                                        Get.toNamed(HomeScreen.id);
+                                      },
+                                      child: Text(
+                                        'Continue as guest',
+                                        style: kAccountTextStyle,
+                                      )),
                                 ],
                               ),
                             )
