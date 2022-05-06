@@ -28,9 +28,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
     super.initState();
   }
 
-   List<Event> _getEventsFromDay(DateTime date){
-     return selectedEvents[date]??[];
-   }
+  List<Event> _getEventsFromDay(DateTime date) {
+    return selectedEvents[date] ?? [];
+  }
 
   @override
   void dispose() {
