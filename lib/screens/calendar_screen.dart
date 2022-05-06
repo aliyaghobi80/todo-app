@@ -17,7 +17,10 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
   late Map<DateTime, List<Event>> selectedEvents;
 
-   final TextEditingController _eventController = TextEditingController();
+  final TextEditingController _eventController = TextEditingController();
+  DateTime selectedDay = DateTime.now();
+  DateTime focusedDay = DateTime.now();
+  CalendarFormat format = CalendarFormat.month;
 
    @override
    void initState() {
