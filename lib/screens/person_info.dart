@@ -40,10 +40,6 @@ class _PersonInfoState extends State<PersonInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('PersonInfo'),
-        centerTitle: true,
-      ),
       body: Container(
         decoration: BoxDecoration(
           image:DecorationImage(image: AssetImage('assets/images/background2.jpg'),fit: BoxFit.cover),),
