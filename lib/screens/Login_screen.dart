@@ -129,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         _formKey.currentState!.save();
                                         print('Form Submit');
                                       }
-                                      authServices.login(emailController.text, passwordController.text, context);
+                                      authServices.login(emailController.text.trim(), passwordController.text.trim(), context);
                                     },
                                   ),
                                   TextButton(
