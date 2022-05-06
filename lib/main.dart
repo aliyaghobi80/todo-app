@@ -19,10 +19,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       getPages: [
-        GetPage(name: SignUpScreen.id, page:()=> SignUpScreen()),
-        GetPage(name: LoginScreen.id, page:()=> LoginScreen()),
-        GetPage(name: HomeScreen.id, page:()=> HomeScreen()),
-        GetPage(name: PersonInfo.id, page:()=> PersonInfo()),
+        GetPage(name: SignUpScreen.id, page:()=> SignUpScreen(),binding: AuthServicesBinding(),),
+        GetPage(name: LoginScreen.id, page:()=> LoginScreen(),binding: AuthServicesBinding(),),
+        GetPage(name: HomeScreen.id, page:()=> HomeScreen(),binding: AuthServicesBinding(),),
+        GetPage(name: PersonInfo.id, page:()=> PersonInfo(),binding: AuthServicesBinding(),),
+        GetPage(name: SplashScreen.id, page:()=> SplashScreen(),binding: AuthServicesBinding(),),
       ],
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.id,
