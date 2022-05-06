@@ -150,6 +150,12 @@ class _PersonInfoState extends State<PersonInfo> {
                     color: Colors.white
                   ),
                 ),),
+                Row(
+                  children: [
+                    TextButton.icon(onPressed: (){
+                    }, icon: Icon(Icons.logout,size: 30,color: Colors.red,), label: Text('Logout',style: TextStyle(fontSize: 25,color:Colors.red),),),
+                  ],
+                )
 
               ],
             ),
