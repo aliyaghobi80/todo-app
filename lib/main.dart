@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
         GetPage(name: PersonInfo.id, page:()=> PersonInfo()),
       ],
       debugShowCheckedModeBanner: false,
-      initialRoute: LoginScreen.id,
-      theme: ThemeData(),
+      initialRoute: SplashScreen.id,
+      theme: ThemeData.dark(),
       transitionDuration: Duration(seconds: 1),
       defaultTransition: Transition.circularReveal,
     );
