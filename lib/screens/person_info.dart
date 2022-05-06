@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+// import 'package:get/get.dart';
 import 'package:todo/constant.dart';
 
 class PersonInfo extends StatefulWidget {
@@ -130,24 +132,24 @@ class _PersonInfoState extends State<PersonInfo> {
                           isChangeUsername=!isChangeUsername;
                         });
                       },
-                      child: Text('changeUsername'),
+                      child: Text('EditUsername',style: TextStyle(color: Colors.black),),
                     ),
                   ],
                 ),),
                 baseContainer( Text(
                   'Email: ${data['email']}',
                   style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w300,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w300,
                       color: Colors.white
                   ),
                 ),),
                 baseContainer(Text(
                   'BirthDay: ${data['birthday']}',
                   style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.white
+                      fontSize: 25,
+                      fontWeight: FontWeight.w300,
+                      color: Colors.white
                   ),
                 ),),
                 Row(
@@ -177,7 +179,7 @@ class _PersonInfoState extends State<PersonInfo> {
         margin: EdgeInsets.symmetric(horizontal: 15,vertical: 20),
     padding: EdgeInsets.all(20),
     decoration: BoxDecoration(
-    border: Border.all(color: Colors.tealAccent,width:1),
+    border: Border.all(color: Colors.white24,width:1),
     borderRadius: BorderRadius.circular(20),
     gradient: LinearGradient(colors: [Colors.white24,Colors.blue.shade600,] ,begin: Alignment.topLeft,end: Alignment.bottomRight)
     ),
