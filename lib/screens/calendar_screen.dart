@@ -22,18 +22,17 @@ class _CalendarScreenState extends State<CalendarScreen> {
   DateTime focusedDay = DateTime.now();
   CalendarFormat format = CalendarFormat.month;
 
-   @override
-   void initState() {
-     selectedEvents={};
-     super.initState();
-
-   }
+  @override
+  void initState() {
+    selectedEvents = {};
+    super.initState();
+  }
 
    List<Event> _getEventsFromDay(DateTime date){
      return selectedEvents[date]??[];
    }
 
-   @override
+  @override
   void dispose() {
     _eventController.dispose();
     super.dispose();
