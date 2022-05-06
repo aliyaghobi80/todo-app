@@ -6,6 +6,7 @@ import 'package:flutter/painting.dart';
 // import 'package:get/get.dart';
 import 'package:todo/constant.dart';
 
+
 class PersonInfo extends StatefulWidget {
   static String id = '/PersonInfo';
 
@@ -136,6 +137,7 @@ class _PersonInfoState extends State<PersonInfo> {
                     ),
                   ],
                 ),),
+
                 baseContainer( Text(
                   'Email: ${data['email']}',
                   style: TextStyle(
