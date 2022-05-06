@@ -39,8 +39,10 @@ class _PersonInfoState extends State<PersonInfo> {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
+        height: size.height,
         decoration: BoxDecoration(
           image:DecorationImage(image: AssetImage('assets/images/background2.jpg'),fit: BoxFit.cover),),
         child: StreamBuilder(
