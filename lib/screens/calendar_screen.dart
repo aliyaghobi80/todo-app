@@ -14,9 +14,8 @@ class CalendarScreen extends StatefulWidget {
 }
 
 class _CalendarScreenState extends State<CalendarScreen> {
-   DateTime _selectedDateTime=DateTime.now();
 
-   late Map<DateTime,List<Event>> selectedEvents;
+  late Map<DateTime, List<Event>> selectedEvents;
 
    final TextEditingController _eventController = TextEditingController();
 
