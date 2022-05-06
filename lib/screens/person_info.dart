@@ -118,12 +118,13 @@ class _PersonInfoState extends State<PersonInfo> {
                     Text(
                       'Username: ${data['username']}',
                       style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w300,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w300,
                           color: Colors.white
                       ),
                     ),
                     TextButton(
+                      style: TextButton.styleFrom(backgroundColor: Colors.black12),
                       onPressed: () {
                         setState(() {
                           isChangeUsername=!isChangeUsername;
