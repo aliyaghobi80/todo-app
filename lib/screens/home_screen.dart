@@ -16,9 +16,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final authServices = Get.find<AuthServices>();
 
-  final authServices=Get.find<AuthServices>();
-  String showSelectedDatetime='';
+  final user = FirebaseAuth.instance.currentUser;
+
+
+
+
+
+  String showSelectedDatetime = '';
+
+  int _selectedIndex = 0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
