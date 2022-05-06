@@ -21,13 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Screen'),
-    centerTitle: true,
-actions: [
-  IconButton(onPressed: (){
-    Get.toNamed(PersonInfo.id);
-  }, icon: Icon(Icons.person))
-],
+        title: Text('ToDo'),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: Column(
