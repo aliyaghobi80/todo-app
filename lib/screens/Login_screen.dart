@@ -29,17 +29,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-//  final FirebaseAuth _auth = FirebaseAuth.instance;
   final authServices=Get.find<AuthServices>();
   var currentStatus='Not Login';
 
-  // bool _isValid = false;
-  //
-  // void _saveForm() {
-  //   setState(() {
-  //     _isValid = _formKey.currentState!.validate();
-  //   });
-  // }
 @override
   void initState() {
   super.initState();
@@ -173,33 +165,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // void checkUser(){
-  //   User? user=_auth.currentUser;
-  //   if(user == null){
-  //     print('not Login');
-  //     setState(() {
-  //       currentStatus='Not Login';
-  //     });
-  //   }
-  //   else{
-  //     print('user:${user.uid}');
-  //     setState(() {
-  //       currentStatus=user.email!;
-  //     });
-  //   }
-  // }
-
-  // void login({var mail, var pass}) async {
-  //   final User? user = (await _auth.signInWithEmailAndPassword(
-  //       email: mail, password: pass))
-  //       .user;
-  //
-  //   if (_auth.currentUser ==null) {
-  //     print("sign up failed!!");
-  //     Get.toNamed(SignUpScreen.id);
-  //   } else {
-  //     print("user Login..");
-  //    Get.offNamed(HomeScreen.id);
-  //   }
-  // }
 }
