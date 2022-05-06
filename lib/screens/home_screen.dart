@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:table_calendar/table_calendar.dart';
+import 'package:todo/screens/add_event_screen.dart';
+import 'package:todo/screens/calendar_screen.dart';
 import 'package:todo/screens/person_info.dart';
 import 'package:todo/services/auth_services.dart';
 
