@@ -17,13 +17,15 @@ class CalendarScreen extends StatefulWidget {
 }
 
 class _CalendarScreenState extends State<CalendarScreen> {
-
+  var db = FirebaseFirestore.instance;
   late Map<DateTime, List<Event>> selectedEvents;
 
   final TextEditingController _eventController = TextEditingController();
+  final TextEditingController _timePicker = TextEditingController();
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
   CalendarFormat format = CalendarFormat.month;
+  DateTime time = DateTime.now();
 
   @override
   void initState() {
