@@ -171,7 +171,28 @@ class _CalendarScreenState extends State<CalendarScreen> {
       ),
     );
   }
-   String convertDate(DateTime dateTime) {
-     return DateFormat('dd/MM/yyyy').format(dateTime);
-   }
+
+  String convertDate(DateTime dateTime) {
+    return DateFormat('dd/MM/yyyy').format(dateTime);
+  }
+
+  addEvent(
+      {required String task,
+      required DateTime date,
+      required DateTime time}) async {
+    // Create a new user with a first and last name
+    final event = <String, dynamic>{
+      "task": task,
+      "date": date,
+      "time": time,
+    };
+
+// Add a new document with a generated ID
+    await db
+        .collection("events")
+        .add(event)
+        .then((DocumentReference doc) =>
+            print('DocumentSnapshot added with ID: ${doc.id}'))
+        .then((value) => Get.back());
+  }
 }
