@@ -51,8 +51,53 @@ class _CalendarScreenState extends State<CalendarScreen> {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: Text('Added Event'),
-                  content: TextFormField(
-                    controller: _eventController,
+                  content: SizedBox(
+                    height: 110,
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          controller: _eventController,
+                          decoration: InputDecoration(
+                            hintText: 'Event',
+                            icon: Icon(
+                              Icons.event_available,
+                              size: 30,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextFormField(
+                          decoration: decorationTextFromField.copyWith(
+                            hintText: 'Enter Time',
+                            icon: Icon(
+                              Icons.timer,
+                              size: 30,
+                            ),
+                          ),
+                          controller: _timePicker,
+                          onTap: () {
+                            DatePicker.showTimePicker(context,
+                                theme: DatePickerTheme(
+                                    backgroundColor: Colors.grey.shade900,
+                                    cancelStyle: TextStyle(color: Colors.red),
+                                    headerColor: Colors.grey.shade800,
+                                    itemStyle: TextStyle(color: Colors.yellow)),
+                                showSecondsColumn: false, onConfirm: (val) {
+                              setState(() {
+                                time = val;
+                                _timePicker.text = val
+                                    .toIso8601String()
+                                    .toString()
+                                    .substring(11, 16);
+                              });
+                            });
+                          },
+                          readOnly: true,
+                        ),
+                      ],
+                    ),
                   ),
                   actions: [
                     TextButton(
