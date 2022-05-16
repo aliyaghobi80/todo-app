@@ -150,22 +150,86 @@ class _CalendarScreenState extends State<CalendarScreen> {
       body: Container(
         child: Column(
           children: [
-            TableCalendar(
-                focusedDay: DateTime.now(),
-                firstDay: kFirstDay,
-                lastDay: kLastDay,
-            eventLoader: _getEventsFromDay,
+            Expanded(
+              flex: 2,
+              child: SingleChildScrollView(
+                child: TableCalendar(
+                  focusedDay: selectedDay,
+                  firstDay: DateTime(1990),
+                  lastDay: DateTime(2050),
+                  calendarFormat: format,
+                  calendarStyle: CalendarStyle(
+                      markerDecoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(50),
+                  )),
+                  daysOfWeekStyle: DaysOfWeekStyle(
+                      weekendStyle: TextStyle(color: Colors.red)),
+                  onFormatChanged: (CalendarFormat _format) {
+                    setState(() {
+                      format = _format;
+                    });
+                  },
+                  startingDayOfWeek: StartingDayOfWeek.sunday,
+                  daysOfWeekVisible: true,
+                  onDaySelected: (DateTime selectDay, DateTime focusDay) {
+                    setState(() {
+                      selectedDay = selectDay;
+                      focusedDay = focusDay;
+                    });
+                    focusedDay = focusDay;
+                  },
+                  selectedDayPredicate: (DateTime date) {
+                    return isSameDay(selectedDay, date);
+                  },
+                  eventLoader: _getEventsFromDay,
+                ),
+              ),
             ),
-            // CalendarDatePicker(
-            //     initialDate:DateTime.now() ,
-            //     firstDate: kFirstDay,
-            //     lastDate: kLastDay,
-            //     onDateChanged: (date){
-            //       setState(() {
-            //      _selectedDateTime=date;
-            //       });
-            //     }),
-            Center(child: Text(convertDate(_selectedDateTime)),),
+            Divider(
+              color: Colors.blue,
+            ),
+            SizedBox(
+              height: 1,
+            ),
+            Expanded(
+              flex: 2,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ..._getEventsFromDay(selectedDay).map(
+                      (Event event) => Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.purpleAccent.withOpacity(0.09),
+                              borderRadius: BorderRadius.circular(11)),
+                          child: ListTile(
+                            style: ListTileStyle.list,
+                            leading: Container(
+                              height: 50,
+                              width: 5,
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(20)),
+                            ),
+                            title: Text(
+                              event.title,
+                            ),
+                            subtitle: Text(
+                                'Date:${event.date.toString().substring(0, 10)} Time:${event.time.toString().substring(11, 19)}'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            // Center(
+            //   child: Text(convertDate(_selectedDateTime)),
+            // ),
           ],
         ),
       ),
