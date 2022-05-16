@@ -43,7 +43,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
     super.dispose();
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: AvatarGlow(
@@ -112,10 +112,33 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       child: Text('Cancel'),
                     ),
                     TextButton(
+                      child: Text("Ok"),
                       onPressed: () {
+                        if (_eventController.text.isEmpty) {
+                        } else {
+                          if (selectedEvents[selectedDay] != null) {
+                            selectedEvents[selectedDay]!.add(
+                              // addEvent(task: _eventController.text,date:selectedDay ,time:time ,),
+                              Event(
+                                  title: _eventController.text,
+                                  time: time,
+                                  date: selectedDay),
+                            );
+                          } else {
+                            selectedEvents[selectedDay] = [
+                              // addEvent(task: _eventController.text,date:selectedDay ,time:time ,),
+                              Event(
+                                  title: _eventController.text,
+                                  time: time,
+                                  date: selectedDay)
+                            ];
+                          }
+                        }
                         Get.back();
+                        _eventController.clear();
+                        setState(() {});
+                        return;
                       },
-                      child: Text('Ok'),
                     ),
                   ],
                 ),
